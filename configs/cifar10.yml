@@ -1,40 +1,40 @@
 training:
-  batch_size: 64  # Reduced from 128
-  n_epochs: 500000  # This can remain unchanged if you're controlling via n_iters
-  n_iters: 50000  # Reduced total iterations
-  snapshot_freq: 1000  # More frequent checkpoints
+  batch_size: 16
+  n_epochs: 500000
+  n_iters: 1000
+  snapshot_freq: 100
   snapshot_sampling: true
   anneal_power: 2
   log_all_sigmas: false
 
 sampling:
-  batch_size: 100
+  batch_size: 16
   data_init: false
   step_lr: 0.0000062
   n_steps_each: 5
-  ckpt_id: 50000  # Adjust to your final iteration number
+  ckpt_id: 1000
   final_only: true
   fid: false
   denoise: true
-  num_samples4fid: 100  # Reduced number of samples for FID computation
+  num_samples4fid: 10
   inpainting: false
   interpolation: false
   n_interpolations: 15
 
 fast_fid:
-  batch_size: 1000
-  num_samples: 1000
+  batch_size: 16
+  num_samples: 10
   step_lr: 0.0000062
   n_steps_each: 5
-  begin_ckpt: 5000
-  end_ckpt: 50000  # Adjusted to the final iteration number
+  begin_ckpt: 100
+  end_ckpt: 1000
   verbose: false
   ensemble: false
 
 test:
-  begin_ckpt: 1000
-  end_ckpt: 50000  # Adjusted to the final iteration number
-  batch_size: 100
+  begin_ckpt: 100
+  end_ckpt: 1000
+  batch_size: 16
 
 data:
   dataset: "CIFAR10"
